@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Какое число больше</title>
+	<title>Сумма чисел</title>
 </head>
 <body>
 	<script type="text/javascript">	
-		var a, b;
+		var sum = 0;
 
-		a = +prompt('Введите число : ');
-		b = parseInt(prompt('Введите второе число : '));
+		while(i=+prompt('Сейчас посчитаем сумму числе, введите число : ')){
+			console.log(i);
+			sum = sum + i; 
+		}
 
-		if (a>b) {
-			alert( a + ' больше');
-		}else{
-			alert(b + ' больше');
-		}	
+		console.log(sum);
+
 	</script>
 
 </body>

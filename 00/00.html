@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>Lesson #1</title>
-		</head>
-		<body>
-			<script type="text/javascript">
-				alert('Hello World');
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Какое число больше</title>
+</head>
+<body>
+	<script type="text/javascript">	
+		var a, b;
 
-			</script>>
-		
-		</body>
-	</html>
+		a = +prompt('Введите число : ');
+		b = parseInt(prompt('Введите второе число : '));
+
+		if (a>b) {
+			alert( a + ' больше');
+		}else{
+			alert(b + ' больше');
+		}	
+	</script>
+
+</body>
+</html>
