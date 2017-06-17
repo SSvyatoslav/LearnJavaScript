@@ -2,18 +2,58 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Количество чисел</title>
+	<title>Изменим каждый второй блок другим классом.</title>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			display: inline-block;
+		}
+		.block{
+			background-color: gray;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+	</style>
 </head>
 <body>
-	<script type="text/javascript">	
-		var cnt = 0;
+	<div class="block"></div>
+	<div class="block"></div>
 
-		while(i=+prompt('Сейчас посчитаем количество чисел, введите число : ')){
-			console.log(i);
-			cnt++ ; 
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<div class="block"></div>
+	<div class="block"></div>
+
+	<script type="text/javascript">	
+		var block = document.querySelectorAll('.block');
+
+		for (var i = 0; i <= block.length-1; i++) {
+			if(i%2){
+				console.log('2');
+				block[i].className = 'yellow';
+			}
+		
 		}
 
-		console.log(cnt);
 
 	</script>
 
