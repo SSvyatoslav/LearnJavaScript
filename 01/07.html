@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Создадим див с текстом "нажми на меня" и добавим класс к блоку и добавим его на страницу</title>
+</head>
+<body>
+	
+	<script>
+		var div = document.createElement('DIV');
+		var text = document.createTextNode('Click ME!');
+
+		div.appendChild(text);
+		div.className = 'block';
+
+		document.body.appendChild(div);
+	</script>
+</body>
+</html>
