@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Есть массив чисел и блоки, нужно вывести числа внутри блоков и квадрат с макимальным числом выделить другим цветом</title>
+
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			font-size: 200px;
+			display: inline-block;
+			margin: 20px;
+		}
+		.max{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	
+
+	<script>
+		var arr = [ 10, 2, 5, 99 , 23];
+		var max = 0;
+		var j;
+
+		for (var i = 0; i < arr.length; i++) {
+			var div = document.createElement('DIV');
+			var text = document.createTextNode(arr[i]);
+
+			div.appendChild(text);
+			div.className = 'block';
+	
+			if(max < arr[i]){
+				max = arr[i];
+			}
+			document.body.appendChild(div);
+		}
+
+		var	blocks = document.querySelectorAll('.block');
+		for (j = 0; j < blocks.length; j++) {
+			console.log(j);
+
+			console.log(blocks[j].innerHTML);
+			if( max == blocks[j].innerHTML){
+				
+				blocks[j].className = 'max';
+			}
+		}
+
+		max.className = "max";
+	</script>
+</body>
+</html>
