@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Напишите функцию power(), которая принимает два целочисленных значения. Функция должна возвращать результат возведения первого числа в степень второго</title>
+</head>
+<body>
+	
+	<script>
+		var result = 1;
+
+		function power(chislo, stepen) {
+			
+			for(var i=0; i < stepen; i++){
+				result = result * chislo;
+			}
+			
+			return result;
+		}
+
+		var z = power(2,10);
+
+		console.log(z);
+	</script>
+</body>
+</html>
