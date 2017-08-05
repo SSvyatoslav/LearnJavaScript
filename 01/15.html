@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Создайте пустой объект book1. Добавьте объекту свойства : title, pubYear и price с произвольными значениями. Создайте объект book2 и установите свойства title, pubYear и price с произовльными значениями в момент создание объекта. Введите свойства объектов в цикле</title>
+</head>
+<body>
+	
+	<script>
+		var book1 = {};
+		book1.title = 'Произовльное название';
+		book1.pubYear = '1989';
+		book1.price = '$18';
+
+		var book2 = {
+			title : "Произвольное название 2",
+			pubYear : '1999',
+			price : '$100'
+		}
+
+		for(var o in book1){
+			console.log(o + " - " + book1[o]);
+		}
+
+		for(var o in book2){
+			console.log(o + " - " + book1[o]);
+		}
+	</script>
+</body>
+</html>
