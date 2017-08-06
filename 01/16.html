@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Используйте код прошлой работы. Добавьте объекту book1 свойство show. Свойство должно содержать анонимную функцию выводящую название и цену книги. Опишите функцию showBook(), которая выводит название и цену книги. Добавьте объекту book2 свойство show. Свойство должно содержать фукнцию showBook(). Вызовите метод show() у обоих объектов
+	</title>
+</head>
+<body>
+	
+	<script>
+		var book1 = {};
+		
+
+		book1.title = 'Произовльное название';
+		book1.pubYear = '1989';
+		book1.price = '$18';
+		book1.show = function() {
+			console.log(book1.title + " - " + book1.price )
+		}
+
+		function showBook(){
+			console.log(this.title + ' - ' + this.price);
+		}
+
+		
+
+
+		var book2 = {
+			title : "Произвольное название 2",
+			pubYear : '1999',
+			price : '$100',
+			show : showBook
+		}
+
+
+		book1.show();
+
+		book2.show();
+
+	</script>
+</body>
+</html>
