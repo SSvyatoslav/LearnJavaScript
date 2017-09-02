@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Исходный код :
+			var a = [5, 12];
+		 	var b = [];
+		 	a[99] = 7; .
+		 	Записать в масиив b квадраты значений массива a :
+		 	- с помощью цикла for;
+		 	- с помощью цикла for/in.
+	</title>
+</head>
+<body>
+	
+	<script>
+		var a = [5, 12];
+		var b = [];
+		a[99] = 7;	
+
+		for (var i = 0; i < a.length; i++) {
+			var kvadrat = a[i]*a[i];
+			b.push(kvadrat);
+			console.log(b[i]);
+		}
+		//	console.log(b);
+		for(var i in a){
+			var kvadrat = a[i]*a[i];
+			b.push(kvadrat);
+			//console.log(b[i]);
+		}
+		//console.log(b);
+
+	</script>
+</body>
+</html>
