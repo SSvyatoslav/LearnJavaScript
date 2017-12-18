@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Исходные данные :
+ 			var text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta beatae, accusamus fugiat in sit molestiae facere consequatur vel numquam, rem tenetur eius, tempora quidem voluptatem necessitatibus. Ut nulla, obcaecati molestiae!';
+ 			var txt = 'sec';  
+ 			var word; .
+ 			В значении переменной text найдите слово содержащее подстроку, которая является значением переменной txt и присвойте его переменной word.
+ 	</title>
+</head>
+<body>
+		
+	<script>
+		var text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta beatae, accusamus fugiat in sit molestiae facere consequatur vel numquam, rem tenetur eius, tempora quidem voluptatem necessitatibus. Ut nulla, obcaecati molestiae!';
+		var txt = 'sec';
+		var word;
+
+		var part = text.indexOf(txt);
+		var firstSpace = text.lastIndexOf(' ', part);
+		var	nextSpace = text.indexOf(' ', part);
+		word = text.slice(firstSpace, nextSpace);
+		console.log(word);
+	</script>	
+</body>
+</html>
