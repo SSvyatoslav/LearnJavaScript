@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Составить регулярное выражение, которое соответствует форматам даты :
+			- 2-12-1977
+			- 29-1-2018
+			- 30-01-2018
+			- 03-11-2018
+ 	</title>
+</head>
+<body>
+		
+	<script>
+		var re = /[0-3]?\d-[0-1]?\d-[1-2]\d{3}/;
+
+		console.log(re.test('2-12a-1977'));
+		console.log(re.test('29-1-20a18'));
+		console.log(re.test('30-01-2018'));
+		console.log(re.test('03-11-2018'));
+	</script>	
+</body>
+</html>
