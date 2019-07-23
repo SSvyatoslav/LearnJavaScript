@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>При клике на блок увеличиваем число внутри блока на единицу</title>
+	<style type="text/css">
+		.block{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			font-size: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="block">0</div>
+
+	<script type="text/javascript">
+		var block = document.querySelector('.block');
+
+		block.onclick = boom;
+
+		function boom() {
+			
+			block.innerHTML = +block.innerHTML +1;
+		}
+
+	</script>
+</body>
+</html>
