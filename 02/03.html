@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>После двух кликов по блоку меняем его фон</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+		}
+		.block {
+			background-color: black;
+		}
+		.new-block {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="block"></div>
+
+	<script type="text/javascript">
+		var block = document.querySelector('.block'),
+			i = 0;
+
+			block.onclick = boom;
+			function boom() {
+				i++;
+				if(i == 3){
+					block.className = 'new-block';
+				}
+			}
+	</script>
+</body>
+</html>
