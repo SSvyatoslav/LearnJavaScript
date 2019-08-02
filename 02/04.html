@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>04 - При клике по блоку меняем изображения внутри него</title>
+	<style type="text/css">	
+		.block {
+			width: 600px;
+			height: 600px;
+			border: 2px solid black;
+			background-size: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="block"></div>
+
+	<script type="text/javascript">
+		var arr = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '61.jpg'],
+			block = document.querySelector('.block'),
+			i = 0;
+
+			block.onclick = boom;
+
+			function boom() {
+				block.style.backgroundImage='url(pic/'+arr[i]+')';
+				i++;
+
+				if (i == arr.length) {
+					i = 0;
+				}
+
+			}
+	</script>
+</body>
+</html>
