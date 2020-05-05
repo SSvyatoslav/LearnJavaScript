@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма с ограниченным количеством символов для ввода текста</title>
+</head>
+<body>
+
+    <form action="#" name="form" >
+        <label for="commnet">Комментарий</label>
+        <textarea name="comment" id="" cols="30" rows="10" onkeypress="func()"></textarea>
+        <br>
+        <label for="">Осталось символов : <span class="num">140</span></label>
+        <br>
+        <input type="submit" value="Send">
+
+    </form>
+
+    <script>
+        let i = 140,
+            num = document.querySelector('.num');
+
+        function func(event) {
+            if(i>=0){
+                i--;
+                if(event.keyCode == '8'){
+                    i= i + 2;
+                }
+                num.innerHTML = i;
+            }
+            else{
+                num.innerHTML = 'Вы использовали все символы)';
+            }
+        }
+
+        window.addEventListener('keydown', func, false);
+    </script>
+</body>
+</html>
