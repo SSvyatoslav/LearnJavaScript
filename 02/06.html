@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>06 - 3 блока считать 3 id и добавить обработчики события 3 разными способами, при клике выводить сообщение</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div id="one"></div>
+	<div id="two"></div>
+	<div id="three"></div>
+	<script type="text/javascript">
+		// 1
+		document.getElementById('one').onclick = function () {
+			alert('Привет');
+		}
+		// 2 
+		function doSom() {
+			alert('Как дела?');
+		}
+		var input = document.getElementById('two');
+		input.onclick = doSom;
+		// 3 
+		function free() {
+			alert('Пока');
+		}
+		var element = document.getElementById('three');
+		element.addEventListener("click", free, false);
+	</script>
+</body>
+</html>
