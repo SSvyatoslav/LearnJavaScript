@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>07 - Есть массив с логинами, вводить в форму логин и при клике проверять свободен ли логин</title>
+</head>
+<body>
+	<form>
+		<p><b>Логин :</b></p>
+		<input type="text" name="login" id="login" maxlength="2500" size="50">
+		<button id="button">Проверить логин есть?</button>
+	</form>
+
+	<script type="text/javascript">
+		var arrLogins = ['name', 'test', 'fisrt'],
+			flag = false;
+
+		function obrab() {
+			var obj = document.getElementById('login');
+			for (var i = 0; i < arrLogins.length; i++) {
+				if (obj.value == arrLogins[i]) {
+					flag = true;
+				}
+			}
+
+			if(flag) {
+				alert('Логин занят! Попробуйте ещё разок!');
+				flag = false;
+			}else {
+				alert('Ура Логин Свободен');
+			}
+		}
+
+		var mybutton = document.getElementById('button');
+		mybutton.onclick = obrab;
+	</script>
+
+</body>
+</html>
