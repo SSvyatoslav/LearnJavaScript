@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>08 - Большой блок и 3 маленьких при клике на маленький у большого меняется цвет на цвет маленького</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+		}
+
+		.big {
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+		}
+
+		.red {
+			background-color: red;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		.blue {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="big"></div>
+	<div class="red"></div>
+	<div class="yellow"></div>
+	<div class="blue"></div>
+
+	<script type="text/javascript">
+		var big = document.querySelector('.big'),
+			red = document.querySelector('.red'),
+			yellow = document.querySelector('.yellow'),
+			blue = document.querySelector('.blue');
+
+			function redChange() {
+				big.className = 'big red';
+			}
+			function yellowChange() {
+				big.className = 'big yellow';
+			}
+			function blueChange() {
+				big.className = 'big blue';
+			}
+
+			red.onclick = redChange;
+			yellow.onclick = yellowChange;
+			blue.onclick = blueChange;
+	</script>
+</body>
+</html>
