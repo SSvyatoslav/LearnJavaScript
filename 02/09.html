@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>09 -При клике на блок у него меняется фон, после последнего фона появляется первый</title>
+	<style type="text/css">
+		.big {
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+		}
+
+		.red {
+			background-color: red;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		.blue {
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="big"></div>
+
+	<script type="text/javascript">
+		var big = document.querySelector(".big"),
+			flag = "",
+			arr = ['red', 'yellow', 'blue'];
+
+			function change() {
+				
+				for (var i = 0; i < arr.length; i++) {
+					
+					if(flag == ""){
+						big.className = 'big red';
+						flag = "red";
+					}
+					else if(flag == "red") {
+						big.className = 'big yellow';
+						flag = "yellow";
+					}
+					else if (flag == "yellow") {
+						big.className = 'big blue';
+						flag = "blue";
+					}
+					else {
+						big.className = "big";
+						flag ="";
+					}
+				}
+			}
+
+			big.onclick = change;
+	</script>
+</body>
+</html>
