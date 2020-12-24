@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>10 - 2 поля с именем и телефоном после нажатия клавиши добавить они появляются на странице</title>
+</head>
+<body>
+
+	<label>Name :</label>
+	<input type="text" name="name" id="name">
+	<label>Phone :</label>
+	<input type="phone" name="phone" id="phone">
+	<button id="button">Add </button>
+
+	<script type="text/javascript">
+		function obrab() {
+			var name = document.getElementById('name').value,
+				phone = document.getElementById('phone').value,
+				div = document.createElement("DIV"),
+				txtName = document.createTextNode(name),
+				divPhone = document.createElement("DIV"),
+				txtPhone = document.createTextNode(phone);
+
+				div.appendChild(txtName);
+				divPhone.appendChild(txtPhone);
+
+				document.body.appendChild(div);
+				document.body.appendChild(divPhone);
+		}
+
+		var myButton = document.getElementById('button');
+		myButton.onclick = obrab;
+	</script>
+</body>
+</html>
