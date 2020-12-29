@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание и модификация узлов -  На экране раз в 2 секуды появляется круг при клике на круг счёт увеличвается, при клике на круг моментально появляется следующий круг</title>
+    <style>
+       html, body {
+           height: 100%;
+       }
+       .score {
+           font-size: 300%;
+           position: absolute;
+           right: 1px;
+       }
+       div {
+           width: 200px;
+           height: 200px;
+           border-radius: 50%;
+           background-color: black;
+       }
+       .red {
+           background-color: red;
+       }
+       .show {
+           display: block;
+       }
+       .none {
+           display: none;
+       }
+    </style>
+</head>
+<body>
+
+    <h1 class="score">0</h1>
+
+    <script>
+        var t = 0,
+            circle,
+            flag = 0;
+
+        /*
+        * рандомим число
+         */
+        function getRandomInt(min,max) {
+            return Math.floor(Math.random() * (max-min))+ min;
+        }
+
+        var timerId = setTimeout(function tick() {
+
+            function paintel() {
+                circle = document.createElement("DIV");
+                circle.className = "block";
+                circle.style.position = 'fixed';
+                circle.style.top = getRandomInt(0, 100) + "%";
+                circle.style.left = getRandomInt(0, 100) + "%";
+            }
+
+            var score = document.querySelector('.score');
+
+            /*
+            * удаляем и добавляем круг каждые 2 секунды
+             */
+            if(flag == 0){
+                paintel();
+
+                setTimeout(function pew() {
+                    circle.className = "none";
+                }, 2000);
+
+                flag = 1;
+            }
+
+            if(flag == 1){
+                paintel();
+                document.body.appendChild(circle);
+                timerId = setTimeout(tick, 2000);
+                flag = 0;
+            }
+
+            circle.onclick = function (event) {
+                paintel();
+
+                event.currentTarget.className = "none";
+
+                t++;
+                score.innerHTML = t;
+
+                clearTimeout(timerId);
+                timerId = setTimeout(tick, 10);
+            }
+
+        }, 2000);
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

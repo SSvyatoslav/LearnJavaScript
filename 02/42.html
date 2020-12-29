@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание и модификация узлов - 2 блока, 2 кнопки - первая кнопка создаёт круги в первом блоке при клике на неё, если кликнуто на круг он меняет цвет фона на другой, при клике на вторую кнопку она отправляет круги с другим фоном в другой блок, при клике на круги в другом блоке они исчезают</title>
+    <style>
+        .button {
+            background-color: green;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .red {
+            background-color: red;
+        }
+        .first, .goto {
+            width: 33%;
+            height: 500px;
+            border: 1px solid blue;
+            border-radius: 0;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="button">Circle</button>
+    <button class="trash">Move</button>
+
+    <div class="first"></div>
+    <div class="goto"></div>
+
+    <script>
+        var btn = document.querySelector('.button'),
+            div,
+            first = document.querySelector('.first'),
+            trash = document.querySelector('.trash'),
+            go = document.querySelector('.goto');
+
+        btn.onclick = function (event) {
+            div = document.createElement('DIV');
+            first.appendChild(div);
+
+            div.onclick = function (event) {
+                event.currentTarget.className = 'red';
+            }
+
+        }
+
+        trash.onclick = function (event) {
+            var red = document.querySelectorAll('.red')
+
+            for (var i = 0; i < red.length; i++ ) {
+                go.appendChild(red[i]);
+            }
+        }
+
+        go.onclick = function (event) {
+            console.log('dddd');
+            if(event.target != this) {
+                this.removeChild(event.target);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
