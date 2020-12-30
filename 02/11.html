@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>3 блока при клике на каждый число внутри блока уменьшается</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            color: yellow;
+            display: inline-block;
+            margin: 20px;
+            font-size: 1000%;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <div class="block">77</div>
+    <div class="block">55</div>
+    <div class="block">25</div>
+
+    <script>
+        function func() {
+            this.innerHTML--;
+        }
+
+        var listObj = document.querySelectorAll('.block');
+
+        for (var i=0; i<listObj.length; i++) {
+
+            listObj[i].onclick = func;
+
+        }
+
+    </script>
 </body>
 </html>

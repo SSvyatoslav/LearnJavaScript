@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Json - 2 поля для ввода, вводим числа и суммируем их и сразу выводим на экран</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="www">
+    <input type="text" id="qqq">
+    <input type="submit" id="send" onclick="alertNum()">
+
+    <div id="myDiv"></div>
+
+    <script>
+        function alertNum() {
+            var num = parseInt(document.getElementById('www').value) + parseInt(document.getElementById('qqq').value);
+
+            document.getElementById('myDiv').innerHTML = num;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
