@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Json - Отправляем Ajax запрос в ответ получаем изменённые данные с формы</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+    <div id="myDiv">
+        <h2>Ajax поменяет местами</h2>
+        First : <br>
+        <input type="text" class="first" name="first" value="">
+        <br>
+        Last : <br>
+        <input type="text" class="last" name="last" value="">
+        <br><br>
+    </div>
+<button type="button" onclick="makeXHR()">Послать Ajax </button>
+    <script>
+        function makeXHR() {
+            let first = document.querySelector('.first').value,
+                last = document.querySelector('.last').value,
+                xhr = new XMLHttpRequest(); // создание объекта для работы с асинхронными запросами
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('result').innerHTML=xhr.responseText;
+                }
+
+            };
+            // формирование запроса
+            xhr.open('GET', "ajax/test.php?a="+first+"&b="+last, true);
+            // отпавка запроса
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

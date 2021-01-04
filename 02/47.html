@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Json - Кнопка посылаем Ajax получаем с файла наш запрос</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+
+    <button type="button" onclick="makeXHR()">Послать Ajax</button>
+
+    <script>
+        function makeXHR() {
+            console.log('testx');
+            // создание объекта для работы с ассинхронными запросами
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState==4 && xhr.status==200) {
+                    let obj = JSON.parse(xhr.responseText);
+                    document.getElementById('result').innerHTML = obj['e'];
+                }
+            };
+            // формирование запроса
+            xhr.open('GET','ajax/create.php', true);
+            // отправка запроса
+            xhr.send();
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

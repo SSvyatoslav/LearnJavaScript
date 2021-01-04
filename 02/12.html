@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>3 блока при клике на каждый добавляется новый класс или возвращается старый (Мигалки)</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            display: inline-block;
+            margin: 20px;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+
+    <script>
+        function func() {
+
+            if(this.className == 'block'){
+                this.className = 'red'
+            }else{
+                this.className = 'block';
+            }
+        }
+
+        var listObj = document.querySelectorAll('.block');
+
+        for (var i=0; i < listObj.length; i++){
+            listObj[i].onclick = func;
+        }
+    </script>
+
 </body>
 </html>
