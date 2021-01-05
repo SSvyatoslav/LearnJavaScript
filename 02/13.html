@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Выпадающее меню при клике</title>
+    <style>
+        ul .block {
+            display: none;
+        }
+        .open>li {
+            display: block;
+        }
+        .block li {
+            display: none;
+        }
+        ul .open li {
+            display: block;
+        }
+        li{
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <ul class="block">
+        Menu
+        <li class="block">
+            <ul>one
+                <li class="block">one one</li>
+                <li class="block">one two</li>
+                <li class="block">one 3</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        function func() {
+            this.className = 'open';
+        }
+
+        var listObj = document.querySelectorAll('.block');
+
+        for (var i=0; i<listObj.length; i++){
+            listObj[i].onclick = func;
+        }
+    </script>
 </body>
 </html>
