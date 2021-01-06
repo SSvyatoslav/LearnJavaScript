@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Json - Отправить Ajax запрос в ответ загружаем данные с отложенным таймером</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="result"></div>
+    <div id="color"></div>
+    <div id="size"></div>
+    <div id="weight"></div>
+    <div id="price"></div>
+
+    <script>
+        var timerId =  setTimeout( function () {
+            let xhr = new XMLHttpRequest(); // создание объекта
+
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    let obj = JSON.parse(xhr.responseText);
+                    document.getElementById('result').innerHTML = obj['name'];
+                    document.getElementById('color').innerHTML = obj['color'];
+                    document.getElementById('size').innerHTML = obj['size'];
+                    document.getElementById('weight').innerHTML = obj['weight'];
+                    document.getElementById('price').innerHTML = obj['price'];
+                }
+            }
+
+            // формируем запрос
+            xhr.open("GET", "ajax/create2.php", true);
+            // отправка запроса
+            xhr.send();
+        },2000);
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
