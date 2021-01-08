@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Способы создания объектов в JS - Создать конструктор, в котором 2 свойства и метод который считает сумму этих свойств</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <script>
+        function CreatePerson() {
+            this.first = 21;
+            this.last = 2;
+            this.sum = function () {
+                return this.first + this.last;
+            }
+        }
+
+        let person = new CreatePerson();
+        console.log(person.sum());
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Мигалка с разными блоками(классами)</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: gray;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .yellow{
+            background-color: yellow;
+        }
+        .black{
+            background-color: black;
+        }
+        .green{
+            background-color: green;
+        }
+        .red{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <div class="yellow"></div>
+    <div class="black"></div>
+    <div class="block"></div>
+    <div class="green"></div>
+
+    <script>
+        let color = "",
+            listObj = document.querySelectorAll('div');
+
+        function func() {
+
+            for (let i=0; i<listObj.length; i++){
+                if(listObj[i].className == 'red'){
+                    listObj[i].className = color;
+                }
+            }
+
+            color = this.className;
+
+            this.className = 'red';
+        }
+
+        for (let i=0; i<listObj.length; i++){
+            listObj[i].onclick = func;
+        }
+    </script>
 </body>
 </html>
