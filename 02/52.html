@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Способы создания объектов в JS - Пройдёмся по массиву картинком и в конструкторе отрисуем галерею, после добавим её на страницу</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+        let pew;
+        let gallery = {
+            arr :['pic/1.jpg','pic/2.jpg', 'pic/3.jpg'],
+            printGallery: function () {
+                for (let i=1; i<= this.arr.length; i++){
+                    let img = document.createElement('img');
+                    img.style.width = '200px';
+                    img.style.height = '100px';
+                    img.src = 'pic/' +  i + '.jpg';
+                    pew = document.body.appendChild(img);
+                }
+                return pew;
+
+            }
+        };
+
+        document.body.appendChild(gallery.printGallery());
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

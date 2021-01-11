@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop - 2 блока меньший можно перетащить в больший</title>
+    <style>
+        #drag_object {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #aaaaaa;
+            background: cornflowerblue;
+        }
+        #dropzone {
+            background: grey;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropzone"></div>
+    <br>
+    <div id="drag_object"></div>
+
+    <script>
+        let dragged = null;
+
+        function dragStart(event) {
+            // сохраняем ссылку на перекиваемый объект
+            dragged = event.target;
+            console.log('dragStart');
+        }
+
+        drag_object.addEventListener('dragstart', dragStart, false);
+
+        function dragOver(event) {
+            // отменяем обработчик по умолчанию, который блокирует ondrop
+            event.preventDefault();
+            console.log('dragOver');
+        }
+
+        function drop(event) {
+            // обработчки по умолчанию пытается перейти по ссылке
+            event.preventDefault();
+            console.log('drop');
+            // event.target в этом событии содержит ссылку на место, куда "кидают" перетаскивавемый объек
+            if(event.target.id == "dropzone"){
+                event.target.appendChild(dragged);
+            }
+        }
+
+        // теперь установим обаботчки на dropzone
+        dropzone.addEventListener('dragover', dragOver, false);
+        dropzone.addEventListener('drop', drop, false);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

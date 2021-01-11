@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>При клике на любую точку браузера отображается её координаты</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        div {
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div id="elem"></div>
+
+    <script>
+        elem.onclick = function (event) {
+            alert(event.clientX + " : " + event.clientY);
+
+        }
+    </script>
 </body>
 </html>

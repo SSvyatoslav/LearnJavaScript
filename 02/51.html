@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Способы создания объектов в JS - Принимаем в конструктор ширину, высоту, цвет и с помощью метода отрисовываем блок</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script>
+        function CreateBlock(width, height, color) {
+            this.width = width;
+            this.height = height;
+            this.color = color;
+
+            this.div = function () {
+
+                let d = document.createElement('div');
+                d.style.width = width + 'px';
+                d.style.height = height + 'px';
+                d.style.background = color;
+
+                return d;
+            }
+        }
+
+        let block = new CreateBlock(200, 300, 'blue');
+        document.body.appendChild(block.div());
+    </script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
