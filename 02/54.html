@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop - 3 блока меньший можно перетащить в любой из больших</title>
+    <style>
+        #drag_object {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #aaaaaa;
+            background: cornflowerblue;
+        }
+
+        .dropzone {
+            background: grey;
+            width: 48%;
+            height: 500px;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+
+    <div id="drag_object" draggable="true" ondragstart="event.dataTransfer.setData('text/plain', null);"></div>
+
+    <script>
+        let dragged = null,
+            dropZone = document.querySelectorAll('.dropzone');
+
+        for (let i = 0; i < dropZone.length; i++) {
+            dropZone[i].addEventListener('dragover', dragOver, false);
+            dropZone[i].addEventListener('drop', drop, false);
+        }
+
+        function dragStart(event) {
+            dragged = event.target;
+        }
+
+        drag_object.addEventListener('dragstart', dragStart, false);
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+
+            if(event.target.className == 'dropzone') {
+                event.target.appendChild(dragged);
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

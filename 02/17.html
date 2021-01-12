@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Шарик на странице при клике на точку экрана шарик перемещается к ней</title>
+    <style>
+        html, body{
+            height: 100%;
+        }
+
+        #ball{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: top 2s, left 2s;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+    <div id="ball"></div>
+
+    <script>
+        document.body.onclick = function (event) {
+            let ball = document.querySelector('#ball');
+            ball.style.top = event.clientY+'px';
+            ball.style.left = event.clientX+'px';
+        }
+    </script>
 </body>
 </html>
