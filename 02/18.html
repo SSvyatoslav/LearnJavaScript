@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>При загрузке обработчик который меняет фон для дива</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+        }
+
+        .hameleon{
+            transition: background-color 5s;
+            background-color: red;
+        }
+
+        .green{
+            transition: background-color 5s;
+            background-color: green;
+        }
+    </style>
+    <script>
+        function func() {
+            let change = document.querySelector('.hameleon');
+            change.className = 'green';
+        }
+    </script>
 </head>
-<body>
-$END$
+<body onload="func()">
+    <div class="hameleon"></div>
 </body>
 </html>
