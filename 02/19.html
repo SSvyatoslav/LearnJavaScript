@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>При скролле вниз больше 600 точек сообщить что количество точек преодаленно в консоль</title>
+
+    <style>
+        html, body{
+            height: 5000px;
+        }
+    </style>
+
+    <script>
+
+        window.onscroll = scroller;
+        let flag = 0;
+
+        function scroller() {
+            if(flag == 0){
+                if(window.pageYOffset > 600){
+                    console.log('Ты дошел до Точки!)');
+                    flag = 1;
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-$END$
+
 </body>
 </html>
