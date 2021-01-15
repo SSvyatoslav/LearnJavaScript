@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop -  2 больших 4 маленьких, при закидывания в левый большой считаем количество блоков в нём</title>
+    <style>
+        .drag_object {
+            width: 100px;
+            height: 100px;
+            border: 1px solid  #aaaaaa;
+            background: cornflowerblue;
+        }
+        .dropzone {
+            background: grey;
+            width: 48%;
+            height: 500px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <p class="count">0</p>
+    <div class="dropzone"></div>
+    <div class="dropzone"></div>
+
+    <div class="drag_object" draggable="true" ondragstart="event.dataTranser.setData('text/plain', null)"></div>
+    <div class="drag_object" draggable="true" ondragstart="event.dataTranser.setData('text/plain', null)"></div>
+    <div class="drag_object" draggable="true" ondragstart="event.dataTranser.setData('text/plain', null)"></div>
+    <div class="drag_object" draggable="true" ondragstart="event.dataTranser.setData('text/plain', null)"></div>
+
+    <script>
+        let dragged = null,
+            dropZone = document.querySelectorAll('.dropzone'),
+            dragObject = document.querySelectorAll('.drag_object')
+            first = dropZone[0];
+
+        for (let i = 0; i < dropZone.length; i++) {
+            dropZone[i].addEventListener('dragover', dragOver, false);
+            dropZone[i].addEventListener('drop', drop, false);
+        }
+
+        for (let i = 0; i < dragObject.length; i++){
+            dragObject[i].addEventListener('dragstart', dragStart, false);
+        }
+
+        function dragStart(event) {
+            dragged = event.target;
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        function drop(event) {
+            event.preventDefault();
+
+            if(event.target.className == "dropzone") {
+                event.target.appendChild(dragged);
+
+                let child = first.children.length,
+                    count = document.querySelector('.count');
+
+                count.textContent = child;
+            }
+        }
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
