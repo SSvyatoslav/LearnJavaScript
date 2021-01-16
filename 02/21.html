@@ -2,9 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Скролим вниз исчезает шапка, как только скролим вверх она появляется </title>
+
+    <style>
+        *{
+            margin: 0 0;
+        }
+        body{
+            height: 5000px;
+            width: 100%;
+            background-color: yellow;
+        }
+        header{
+            width: 100%;
+            height: 150px;
+            background-color: green;
+        }
+        .absolute{
+            position: absolute;
+        }
+        .fixed{
+            position: fixed;
+        }
+    </style>
 </head>
-<body>
-$END$
+<body id="elem">
+    <header class="header"></header>
+
+    <script>
+        window.onscroll = scroller;
+
+        let scrolling = 0,
+            change = document.querySelector('.header');
+
+        function scroller() {
+            if(window.pageYOffset >scrolling){
+                scrolling = window.pageYOffset;
+                change.className = 'absolute';
+            }else{
+                change.className = 'fixed';
+            }
+        }
+    </script>
 </body>
 </html>

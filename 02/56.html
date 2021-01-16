@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регулярные выражения -  Найти время и отобразить первые 2 цифры, последние 2 цифры и полный результат</title>
+</head>
+<body>
+
+    <script>
+        let str = 'time now 23:06',
+            re = /(\d{2}):(\d{2})/,
+            res = str.match(re);
+
+        console.log(res[1]);
+        console.log(res[2]);
+        console.log(res);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
