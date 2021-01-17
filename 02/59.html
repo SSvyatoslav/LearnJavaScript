@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регулярные выражения - Подмастки проверка на время</title>
+</head>
+<body>
+
+    <script>
+        let str = 'time now 20:51',
+            re = /([0-1][0-9]|[2][0-3]):([0-5][0-9])/,
+            res = str.match(re);
+
+        console.log(res[1]);
+        console.log(res[2]);
+        console.log(res);
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>При клике на стрелочки в право влево у блоков меняется фон</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+        .block {
+            background-color: yellow ;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+    <div class="block"></div>
+
+    <script>
+       let i = 0,
+           blocks = document.querySelectorAll('.block'),
+           red = document.querySelector('.red');
+
+       if(i == 0){
+           blocks[i].className = 'red';
+       }
+
+       function func(event) {
+           if(event.keyCode == '39'){
+               if(i<3){
+                   i++;
+                   let z = i -1;
+                   blocks[i].className = 'red';
+                   blocks[z].className = 'block';
+               }
+           }
+           if(event.keyCode == '37'){
+               if(i>0){
+                   i--;
+                   let z = i+1;
+                   blocks[i].className = 'red';
+                   blocks[z].className = 'block';
+               }
+           }
+       }
+
+       window.addEventListener('keydown', func, false);
+    </script>
+
 </body>
 </html>
