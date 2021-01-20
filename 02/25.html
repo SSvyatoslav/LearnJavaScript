@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ссылка на google.com под ней замок, при клике на ссылку выводится сообщение : "откройте замок" при клике на закрытый замок он открывается ссылка работает</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-size: 100%;
+        }
+        .clossed {
+            background-image: url("pic/clossed.png");
+        }
+        .open {
+            background-image: url("pic/open.png");
+        }
+    </style>
+</head>
+<body>
+    <a href="http://google.com" onclick="func(event)">Google</a>
+    <br> <br>
+    <div class="clossed"></div>
+
+    <script>
+        let div = document.querySelector('.clossed');
+
+        function func(event) {
+            if(div.className == 'clossed'){
+                alert('Пожалуйста разблокируйте.');
+                event.preventDefault();
+            }
+        }
+        function lock(event) {
+            if(div.className == 'clossed'){
+                div.className = 'open';
+            } else {
+              div.className = 'clossed';
+            }
+        }
+
+        div.addEventListener('click', lock, false);
+    </script>
+</body>
+</html>

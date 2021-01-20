@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регулярные выражения - Найти в строке числа и заменить их на квадраты чисел</title>
+</head>
+<body>
+
+    <script>
+        function kvadrat(pattern_sting, first) {
+            return first*first;
+        }
+
+        let str = 'Test 15 peew pew oew 999',
+            result =  str.replace(/(\d+)/g, kvadrat);
+
+        console.log(result);
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
