@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Стилизовать кнопку так чтобы она работала как поле для отправки файлов на сервер</title>
+    <style>
+        .none {
+            display: none;
+        }
+
+        button {
+            background-color: green;
+            border: none;
+            color: azure;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <button class="push">Нажми на меня</button>
+
+    <form style="display: none" action="index.php" enctype="multipart/form-data" method="post">
+        <p>
+            <input type="file" class="none">
+        </p>
+        <input type="submit" class="submit" value="Отправить">
+
+    </form>
+
+    <script>
+        let button = document.querySelector('.push'),
+            oldInput = document.querySelector('.none'),
+            submit2 = document.querySelector('.submit');
+
+        function push(event) {
+            oldInput.click();
+        }
+
+        oldInput.onchange = function () {
+            console.log('add');
+            submit2.click();
+        }
+
+        button.addEventListener('click', push, false);
+    </script>
+</body>
+</html>
