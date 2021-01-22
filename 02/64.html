@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регулярные выражения - Написать транслит</title>
+</head>
+<body>
+
+    <script>
+        let kiril = ['а', "б", "в"],
+            lat = ['a', 'b', 'v'],
+            str = 'бав 231 а',
+            result = str.replace(/(а|б|в)/g, translite);
+
+        function translite(pren, first) {
+
+            for (let i = 0; i < kiril.length; i++) {
+
+                if(kiril[i] == first) {
+                    numb = i;
+                }
+
+            }
+
+            return lat[numb];
+        }
+
+        console.log(result);
+
+
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

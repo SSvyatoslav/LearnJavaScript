@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 страничный сайт без страниц</title>
+    <style>
+        div {
+            width: 100%;
+            height: 1000px;
+            border: 1px solid black;
+        }
+        .one {
+            background-color: black;
+        }
+        .two {
+            background-color: yellow;
+        }
+        .there {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <menu class="menu">
+        <a href="one" class="oneA">one</a>
+        <a href="two" class="twoA">two</a>
+        <a href="there" class="thereA">there</a>
+    </menu>
+
+    <div class="one"></div>
+
+    <script>
+        var one = document.querySelector('.oneA'),
+            two = document.querySelector('.twoA'),
+            there = document.querySelector('.thereA'),
+            div = document.querySelector('.one');
+
+        function func(event) {
+            div.className = 'one';
+            event.preventDefault();
+        }
+
+        function func2(event) {
+            div.className = 'two';
+            event.preventDefault();
+        }
+
+        function func3(event) {
+            div.className = 'there';
+            event.preventDefault();
+        }
+
+        one.addEventListener('click', func, false);
+        two.addEventListener('click', func2, false);
+        there.addEventListener('click', func3, false);
+
+    </script>
+</body>
+</html>
