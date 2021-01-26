@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 блока внутри большого блока при клики на них у них меняется класс</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+        .gray {
+            background-color: gray;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .father {
+            width: 650px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="gray"></div>
+        <div class="gray"></div>
+        <div class="gray"></div>
+    </div>
+
+    <script>
+        var div = document.querySelector(".gray"),
+            father = document.querySelector('.father');
+
+        father.onclick = function (event) {
+            if(event.target !=this) {
+                event.target.className = 'yellow';
+            }
+        }
+    </script>
+</body>
+</html>

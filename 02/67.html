@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты - Копилка</title>
+</head>
+<body>
+
+    <script>
+
+        let countFn = (function () {
+            let counter = 0;
+
+            return function (a) {
+                counter = counter + a;
+                console.log(counter);
+            }
+        })();
+
+        countFn(1);
+        countFn(2);
+        countFn(3);
+        countFn(44);
+        countFn(99);
+        countFn(1);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

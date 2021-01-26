@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты - объект возвращает картинку</title>
+</head>
+<body>
+
+    <div class="img"></div>
+
+    <script>
+        let div = document.querySelector('.img'),
+            obj = (function () {
+
+                let width = 500,
+                    height = 700,
+                    address = 'pic/1.jpg';
+
+                return {
+                    show:function () {
+                        return '<img src='+ address + ' width=' + width + ' height=' + height+ '>'
+
+                    }
+                }
+            })();
+
+        obj.show();
+        div.innerHTML = obj.show();
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

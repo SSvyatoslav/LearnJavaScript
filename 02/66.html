@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты - самовызывающая функция</title>
+</head>
+<body>
+
+    <script>
+        let countFn = (function () {
+            let counter = 'true';
+
+            return function () {
+                if(counter == 'true'){
+                    console.log(counter);
+                    counter = 'false';
+                }
+                else {
+                    console.log(counter);
+                    counter = 'true';
+                }
+
+            }
+
+        })();
+
+        countFn();
+        countFn();
+        countFn();
+        countFn();
+        countFn();
+        countFn();
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
