@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блоки с цифрами при клики на блок у него меняется цифра на еденицу меньше</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            display: inline-block;
+            font-size: 200%;
+        }
+        .father {
+            width: 1750px;
+        }
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="father">
+    <div class="gray">19</div>
+    <div class="gray">20</div>
+    <div class="gray">11</div>
+    <div class="gray">16</div>
+    <div class="gray">5</div>
+    <div class="gray">22</div>
+    <div class="gray">7</div>
+    <div class="gray">100</div>
+</div>
+
+<script>
+    var div = document.querySelector(".gray"),
+        father = document.querySelector(".father");
+
+    father.onclick = function (event) {
+        if(event.target!=this) {
+            if(0 == event.target.innerHTML){
+                event.target.className = 'none';
+            }
+            event.target.innerHTML--;
+        }
+    }
+
+</script>
+
+</body>
+</html>
