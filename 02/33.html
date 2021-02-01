@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интервал и таймер - На странице блок через секунду начинается меняться у него фон</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .red {
+            background-color: red;
+            transition: .51s;
+        }
+        .blue {
+            background-color: blue;
+            transition: .51s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="red"></div>
+
+    <script>
+        var div = document.querySelector('div');
+
+        setInterval(
+            function (){
+                if (div.className == "red"){
+                    div.className = "blue";
+                } else {
+                    div.className = "red";
+                }
+            }, 1000);
+    </script>
+
+</body>
+</html>
