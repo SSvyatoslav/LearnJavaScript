@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ищем в блоках условное число, когда находим меняем цвет всех остальных блоков на другой</title>
+	<style type="text/css">
+		.block{
+			width: 150px;
+			height: 150px;
+			background-color: grey;
+			display: inline-block;
+			text-align: center;
+			font-size: 150px;
+			margin-left: 20px;
+		}
+		.new-block{
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			display: inline-block;
+			text-align: center;
+			font-size: 200px;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="block">99</div>
+	<div class="block">6</div>
+	<div class="block">3</div>
+	<div class="block">5</div>
+	<div class="block">77</div>
+
+	<script type="text/javascript">
+		var five = 5,
+			z = 0,
+			flag = false
+			blocksList = document.querySelectorAll('.block');
+
+		for (var i = 0; i < blocksList.length; i++) {
+			
+			if(five == blocksList[i].innerHTML){
+				flag = 1;
+			}
+			if(flag == 1){
+				blocksList[i].className = 'new-block';
+			}
+		}	
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея - всплытие событий - большой блок</title>
+    <style>
+        .block {
+            width: 1000px;
+            height: 1000px;
+            border: 1px solid black;
+            background-size: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="block"></div>
+
+    <script>
+        var arr = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg'],
+            obj = document.querySelector('.block'),
+            flag = 0;
+
+        obj.onclick = boom;
+
+
+        function boom() {
+           /* console.log('1');*/
+            obj.style.backgroundImage = 'url(pic/'+arr[flag]+')';
+            flag++;
+            if(flag == arr.length){
+                flag = 0;
+            }
+        }
+    </script>
+
+</body>
+</html>
