@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интервал и таймер - На странице блок через секунду начинается меняться у него фон при кликена кнопку "Start" и "Stop"</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .red {
+            background-color: red;
+            transition: .51s;
+        }
+        .blue {
+            background-color: blue;
+            transition: .51s;
+        }
+    </style>
+</head>
+<body>
+    <div class="red"></div>
+
+    <button onclick="start();">Start</button>
+    <button onclick="stop();">Stop</button>
+
+    <script>
+        var div = document.querySelector('div'),
+            intervalID = 0;
+
+        function start() {
+            if(intervalID == 0){
+                intervalID = setInterval(
+                    function (){
+                        if(div.className == 'red'){
+                            div.className = "blue";
+                        } else {
+                            div.className = 'red';
+                        }
+                    },1000);
+            }
+        };
+
+        function stop() {
+            clearInterval(intervalID);
+            intervalID = 0;
+        }
+
+    </script>
+
+</body>
+</html>

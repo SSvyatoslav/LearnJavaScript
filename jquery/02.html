@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery - Есть синий блок. С помощью jQuery поменять его цвет на красный.</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.blue {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="blue"></div>
+
+	<script>
+		$('.blue').css('backgroundColor', 'red');
+	</script>
+
+</body>
+</html>

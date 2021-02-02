@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery - Есть блок. Сделать так, чтобы при кликах блок менял цвет с первого на второй. Со второго на первый.</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.blue {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="blue"></div>
+
+	<script>
+		let flag = 1;
+		$('.blue').on('click', function (event) {
+			if(flag == 1){
+				$('.blue').css('backgroundColor', 'red');
+				flag = 0;
+			}else {
+				$('.blue').css('backgroundColor', 'blue');
+				flag = 1;
+			}
+		})
+	</script>
+
+</body>
+</html>
