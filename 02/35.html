@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интервал и таймер - Блок с внутри с цифрами, когда цифра доходит до нуля у блока меняется фон</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            font-size: 300%;
+        }
+        .red {
+            background-color: red;
+            transition: .51s;
+        }
+        .blue {
+            background-color: blue;
+            transition: .51s;
+        }
+    </style>
+</head>
+<body>
+    <div>4</div>
+
+    <script>
+
+        var div = document.querySelector("div"),
+            i = 3;
+
+        var timer = setTimeout(function run(){
+            div.innerHTML = i--;
+            if(i == -1){
+                div.className = "red";
+            } else {
+                timer = setTimeout(run,1000)
+            }
+        },1000);
+
+    </script>
+
+</body>
+</html>
