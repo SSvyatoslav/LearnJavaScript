@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debouncing - Поле для ввода логина, проверяем верно ли если да то границу зелёным в противном случае красным</title>
+    <style>
+        input {
+            outline: 0;
+        }
+        .good {
+            border: 2px solid green;
+        }
+        .bad {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" name="name">
+
+    <script>
+
+        var input = document.querySelector('input'),
+            timeout,
+            login = 'admin',
+            inputText;
+
+        input.addEventListener('keydown', function (){
+
+            clearTimeout(timeout);
+
+            timeout = setTimeout(function () {
+
+                inputText = document.querySelector('input').value;
+
+                if(login == inputText){
+                    input.className = 'good';
+                } else {
+                    input.className = 'bad';
+                }
+            }, 1000);
+        });
+
+    </script>
+
+</body>
+</html>
