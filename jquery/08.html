@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery - Сделать чтобы по клику на кнопку добавлялся красный, квадратный блок</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.parent {
+			width: 1000px;
+			height: 2000px;
+		}
+		.parent div {
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+
+	<a href="#" class="click">CLICK</a>
+	<div class="parent"></div>
+
+	<script>
+
+		$('.click').click(function () {
+			$('.parent').append($('<div></div>'));
+
+		})
+
+	</script>
+
+</body>
+</html>

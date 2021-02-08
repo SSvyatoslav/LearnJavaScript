@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debouncing - Наводим на блок после секунды появляется запись, убираем запись исчезает</title>
+    <style>
+
+        .obj {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        .help {
+            display: none;
+        }
+        .show {
+            color: blue;
+            font-size: 200%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="obj"></div>
+    <div class="help">Ты меня видишь :)</div>
+
+    <script>
+        var obj = document.querySelector('.obj'),
+            help = document.querySelector('.help'),
+            timeout,
+            flag = 0;
+        // ушли с объекта
+        obj.addEventListener('mouseout', function (){
+            flag = 0 ;
+            help.className = 'help';
+        });
+        // пришли на объект
+        obj.addEventListener('mouseover', function (){
+            flag = 1;
+        });
+        // двигаемся по объекту
+        obj.addEventListener('mousemove',function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                if (flag == 1) {
+                    help.className = 'show';
+                }
+            }, 1000);
+        });
+
+    </script>
+
+</body>
+</html>

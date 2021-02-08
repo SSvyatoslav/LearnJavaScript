@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery - Автоматическая галерея</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		div {
+			border: 1px	solid black;
+		}
+		.father {
+			width: 1500px;
+			height: 900px;
+			background-repeat: no-repeat;
+		}
+		.father div {
+			width: 200px;
+			height: 200px;
+			background-size: cover;
+			display: inline-block;
+		}
+		.pic1 {
+			background-image: url("/02/pic/1.jpg");
+		}
+		.pic2 {
+			background-image: url("/02/pic/2.jpg");
+		}
+		.pic3 {
+			background-image: url("/02/pic/3.jpg");
+		}
+		.pic4 {
+			background-image: url("/02/pic/4.jpg");
+		}
+		.pic5 {
+			background-image: url("/02/pic/5.jpg");
+		}
+		.pic6 {
+			background-image: url("/02/pic/6.jpg");
+		}
+
+		.outline {
+			outline:  10px solid red;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="pic1 img"></div>
+		<div class="pic2 img"></div>
+		<div class="pic3 img"></div>
+		<div class="pic4 img"></div>
+		<div class="pic5 img"></div>
+		<div class="pic6 img"></div>
+	</div>
+
+
+	<script>
+		let arr = ['pic1','pic2','pic3','pic4','pic5','pic6'],
+			i = 0;
+
+		function go_slader() {
+			let p = 'father ' + arr[i];
+			$('.father').attr('class', p);
+			$('.img').eq(i).removeClass('outline');
+			i++;
+			if(i == 6) {
+				i = 0;
+			}
+			$('.img').eq(i).toggleClass('outline');
+		}
+
+		setInterval(go_slader, 1000);
+
+	</script>
+
+</body>
+</html>

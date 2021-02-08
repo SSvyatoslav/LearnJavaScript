@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery - Галерея на центр экрана при клике</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.block {
+			width: 200px;
+			height: 200px;
+			border: 1px solid;
+			display: inline-block;
+			background-size: 100%;
+			position: absolute;
+		}
+		.pic1 {
+			background: url("/02/pic/1.jpg");
+			background-size: cover;
+		}
+		.pic2 {
+			background: url("/02/pic/2.jpg");
+			background-size: cover;
+		}
+		.pic3 {
+			background: url("/02/pic/3.jpg");
+			background-size: cover;
+		}
+		.pic4 {
+			background: url("/02/pic/4.jpg");
+			background-size: cover;
+		}
+		.pic5 {
+			background: url("/02/pic/5.jpg");
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="block pic1"></div>
+		<div class="block pic2"></div>
+		<div class="block pic3"></div>
+		<div class="block pic4"></div>
+		<div class="block pic5"></div>
+	</div>
+
+	<script>
+		for (let i = 0; i < $('.block').length; i++) {
+			$('.block').eq(i).css('left', i*200 + 'px');
+		}
+
+		let pic, oldPicTop, oldPicLeft,
+			tops = window.innerHeight/2,
+			width = window.innerWidth/2;
+
+		$('.block').click(function () {
+			if(pic) {
+				if(pic[0] != this){
+					$(pic).animate({top: oldPicTop, left :oldPicLeft});
+
+				$(this).animate({top :tops, left : width});
+				}
+			}
+			if(!pic || pic[0] != this){
+				pic = $(this);
+				oldPicTop = $(this).css('top');
+				oldPicLeft = $(this).css('left');
+			}
+
+		})
+
+	</script>
+
+</body>
+</html>
