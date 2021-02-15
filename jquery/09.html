@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Переносим фото в корзину выделив рамкой и серым фоном</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.block, img {
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+		}
+		.odvodka {
+			border: 5px	solid red;
+			filter: grayscale(100%);
+		}
+		.trash {
+			width: 1000px;
+			height: 1000px;
+			border: 10px solid blue;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="parent">
+
+	</div>
+
+	<a href="#" class="deletePhoto">Delete</a>
+	<div class="trash"></div>
+
+
+	<script>
+		let arr =  ['1.jpg', '2.jpg','3.jpg','4.jpg','5.jpg'];
+		for (let i = 0; i < arr.length; i++){
+			$('.parent').append('<img class="block" src="/02/pic/' + arr[i] + '"> ');
+		}
+
+		$('.block').click(function () {
+			$(this).toggleClass('odvodka');
+		});
+
+		$('.deletePhoto').click(function () {
+			if($('.odvodka')) {
+				let move = $('.odvodka').detach();
+				move.toggleClass('odvodka');
+				$('.trash').append(move);
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>

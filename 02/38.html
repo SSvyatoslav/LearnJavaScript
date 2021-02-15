@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debouncing - перестаём двигать мышкой появляется круг который увеличивывается</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px;
+        }
+        .none {
+            display: none;
+        }
+        .all {
+            width: 100%;
+            height: 1000px;
+            background-color: black;
+        }
+        .small {
+            display: block;
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50px;
+            position: absolute;
+            -webkit-transition: all 3s;
+            -moz-transition: all 3s;
+            -ms-transition: all 3s;
+            -o-transition: all 3s;
+            transition: all 3s;
+        }
+        .small:hover {
+            background-color: blue;
+            transform: scale(3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="all">
+        <div class="circle"></div>
+    </div>
+
+    <script>
+        var body = document.querySelector('.all'),
+            circle = document.querySelector('.circle'),
+            timeout;
+
+        body.addEventListener('mousemove', function (event) {
+            circle.className = 'none';
+            clearTimeout(timeout);
+
+            timeout = setTimeout(function () {
+                circle.style.top = event.clientY-50+'px';
+                circle.style.left = event.clientX-50+'px';
+                circle.className = 'small';
+            }, 1500);
+
+        });
+    </script>
+
+</body>
+</html>

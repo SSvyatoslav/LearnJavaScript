@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Заполнить стакан водой *(блоками с водой)</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		.parent {
+			width: 400px;
+			height: 500px;
+			border: 25px solid blue;
+			border-top-width: 0px;
+			display: inline-block;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		.one {
+			width: 350px;
+			height: 200px;
+			background-color: blue;
+			display: inline-block;
+		}
+		.sa {
+			width: 400px;
+			height: 200px;
+			background-color: blue;
+			display: inline-block;
+		}
+		.fa {
+			width: 200px;
+			height: 200px;
+			background-color: blue;
+			display: inline-block;
+		}
+		.test {
+			width: 100%;
+			border: 1px solid red;
+		}
+
+		.left {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="test"></div>
+	</div>
+	<div class="left">
+		<div class="block one"></div>
+		<div class="block sa"></div>
+		<div class="block fa"></div>
+	</div>
+
+	<script>
+		let i = 0;
+
+		$('.block').click(function () {
+			i++;
+			let moving = $(this).detach();
+			$('.parent').append(moving);
+			if(i==3){
+				alert('STAKAN POLN');
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>

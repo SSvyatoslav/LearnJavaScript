@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY -  Открыть файл и отобразить содержимое</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<button>click me</button>
+	<div id="div1"></div>
+	<script>
+		$('button').click(function () {
+			$.ajax({url:"/02/files/file.txt", success: function (result) {
+					$('#div1').html(result);
+				}})
+		})
+
+	</script>
+
+</body>
+</html>
