@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Навигация по DOM - Создать несколько блоков, текстов - после отобразить всё в консоле как дети body</title>
+    <style>
+    </style>
+</head>
+<body><div></div>
+    <p>11111</p>
+    <div></div>
+    <span>fdasdas</span>
+    <!--<div></div>-->
+
+    <script>
+        var nods = document.body.childNodes;
+
+        for (var i=0; i<nods.length; i++) {
+
+            console.log(nods[i].nodeName + ' - ' + nods[i].nodeType);
+        }
+    </script>
+
+
+</body>
+</html>

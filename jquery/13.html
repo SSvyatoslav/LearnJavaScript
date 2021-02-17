@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Внести в поля данные и отправить их в форму и посчитать сумму</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<input type="text" class="first">
+	<input type="text" class="last">
+	<button>click me</button>
+	<script>
+		$("button").click(function () {
+			let a1 = $('.first').val(),
+				b1 = $('.last').val();
+
+			$.ajax(
+					{
+						url:"/02/ajax/demo.php",
+						data: {a:a1, b:b1},
+						success: function (result) {
+							$('#div1').html(result);
+						}})
+		})
+
+
+	</script>
+
+</body>
+</html>
