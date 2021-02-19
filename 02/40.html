@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Навигация по DOM - 1 блок сверху 4 снизу стрелочками можно перемещаться по ним, упершись в последний дальше не идти</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .child {
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .active {
+            background-color: blue;
+            display: inline-block;
+        }
+        .parent {
+            width: 900px;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="top"></div>
+    </div>
+
+    <div class="parent">
+        <div class="active"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+
+    <script>
+        var nodes = document.querySelector('.parent').children,
+            active = nodes[0],
+            top2 = document.querySelector('.top');
+        console.log(top2);
+
+        window.onkeydown =  function (event) {
+            var activeOld = document.querySelector('.active');
+
+            // left
+            if(event.keyCode == 37){
+                if(active.previousElementSibling != null){
+                    activeOld.className = 'child';
+                    active = active.previousElementSibling;
+                    active.className = 'active';
+                }
+            }
+            // right
+            if(event.keyCode == 39) {
+                if(active.nextElementSibling != null){
+                    activeOld.className = 'child';
+                    active = active.nextElementSibling;
+                    active.className = 'active';
+                }
+            }
+            // top
+            if(event.keyCode == 38) {
+                activeOld.className = 'child';
+                top2.className = 'active';
+            }
+            // btm
+            if(event.keyCode == 40) {
+                top2.className = 'top';
+                active.className = 'active';
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>

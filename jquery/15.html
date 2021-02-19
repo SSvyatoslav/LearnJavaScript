@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Загрузить файл на сервер</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+
+	<form action="/jquery/php/action.php" id="formId">
+		<input type="file" name="myfile">
+		<input type="submit">
+	</form>
+	<script>
+
+		$(document).ready(function (e) {
+			$('#formId').on('submit', function (e) {
+				e.preventDefault();
+				let formData = new FormData(this);
+
+				$.ajax({
+					type: 'POST',
+					url: $(this).attr('action'),
+					data: formData,
+					cache: false,
+					contentType: false,
+					processData: false,
+					success: function (data) {
+						console.log('success');
+						console.log(data);
+					},
+					error: function (data) {
+						console.log('error');
+						console.log(data);
+					}
+
+				})
+			})
+		});
+
+
+	</script>
+
+</body>
+</html>

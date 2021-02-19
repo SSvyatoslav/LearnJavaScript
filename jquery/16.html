@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Сделать плагин, который бы раскрашивал блоки в зависимости от их размера</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+		#div {
+			width: 499px;
+			height: 200px;
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="div"></div>
+
+
+	<script>
+		let yellow = 199,
+			green = 299,
+			red = 399;
+
+		jQuery.fn.widthbar = function () {
+			let divWidth = parseInt($('#div').css('width'));
+
+			if(divWidth >= yellow && divWidth < green){
+				$('#div').css('background-color', 'yellow');
+			}else if(divWidth >= green && divWidth < red) {
+				$('#div').css('background-color', 'green');
+			}else if ( divWidth >= red) {
+				$('#div').css('background-color', 'red')
+			}
+		};
+
+		$().widthbar();
+
+
+
+	</script>
+
+</body>
+</html>

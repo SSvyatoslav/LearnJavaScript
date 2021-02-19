@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise - открыть файл на сервере</title>
+</head>
+<body>
+
+    <script>
+        function httpGet(url) {
+            return new Promise(
+                function (resolve, reject) {
+
+                    let request = new XMLHttpRequest();
+                    request.onreadystatechange = function () {
+                        console.log(this);
+                        if(request.readyState == 4) {
+                            console.log('ready state 4 ' + request.status);
+                            if(request.status == 200){
+                                resolve(this.response);
+                            }
+                        } else {
+                            reject('no connection');
+                        }
+                    };
+                    request.onerror = function () {
+                        reject(new Error(
+                            'XMLHttpRequest Erro : ' + this.statusText
+                        ));
+                    };
+                    console.log(url);
+                    request.open('GET', url);
+                    request.send();
+                }
+            )
+        }
+
+        httpGet('http://js.lc/02/files/file2.txt')
+            .then(
+                function (value) {
+                    console.log('Contents : ' + value);
+                },
+                function (reason) {
+                    console.error('Something went wrong', reason)
+                }
+            )
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

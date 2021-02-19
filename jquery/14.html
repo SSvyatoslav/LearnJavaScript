@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> JQUERY - Через jSon получить данные с базы и отобразить на странице</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+
+	<div id="div1"></div>
+	<button>click</button>
+	<script>
+
+		$('button').click(function () {
+
+			$.ajax(
+					{
+						url: "/jquery/php/takeInBase.php",
+						success : function (result) {
+							let z = JSON.parse(result);
+							$("#div1").html(z);
+							console.log(z);
+
+							for (let i = 0; i < z.length; i++) {
+								$('#div1').append(z[i].name + " - " + z[i].phone + '<br>');
+							}
+
+						}
+
+					}
+			)
+
+		})
+
+	</script>
+
+</body>
+</html>
