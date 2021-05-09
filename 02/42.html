@@ -2,76 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Создание и модификация узлов - 2 блока, 2 кнопки - первая кнопка создаёт круги в первом блоке при клике на неё, если кликнуто на круг он меняет цвет фона на другой, при клике на вторую кнопку она отправляет круги с другим фоном в другой блок, при клике на круги в другом блоке они исчезают</title>
+    <title>Создание и модификация узлов -  На экране раз в 2 секуды появляется круг при клике на круг счёт увеличвается, при клике на круг моментально появляется следующий круг</title>
     <style>
-        .button {
-            background-color: green;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-        div {
-            width: 100px;
-            height: 100px;
-            background-color: yellow;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .red {
-            background-color: red;
-        }
-        .first, .goto {
-            width: 33%;
-            height: 500px;
-            border: 1px solid blue;
-            border-radius: 0;
-            background: none;
-        }
+       html, body {
+           height: 100%;
+       }
+       .score {
+           font-size: 300%;
+           position: absolute;
+           right: 1px;
+       }
+       div {
+           width: 200px;
+           height: 200px;
+           border-radius: 50%;
+           background-color: black;
+       }
+       .red {
+           background-color: red;
+       }
+       .show {
+           display: block;
+       }
+       .none {
+           display: none;
+       }
     </style>
 </head>
 <body>
-    <button class="button">Circle</button>
-    <button class="trash">Move</button>
 
-    <div class="first"></div>
-    <div class="goto"></div>
+    <h1 class="score">0</h1>
 
     <script>
-        var btn = document.querySelector('.button'),
-            div,
-            first = document.querySelector('.first'),
-            trash = document.querySelector('.trash'),
-            go = document.querySelector('.goto');
+        var t = 0,
+            circle,
+            flag = 0;
 
-        btn.onclick = function (event) {
-            div = document.createElement('DIV');
-            first.appendChild(div);
-
-            div.onclick = function (event) {
-                event.currentTarget.className = 'red';
-            }
-
+        /*
+        * рандомим число
+         */
+        function getRandomInt(min,max) {
+            return Math.floor(Math.random() * (max-min))+ min;
         }
 
-        trash.onclick = function (event) {
-            var red = document.querySelectorAll('.red')
+        var timerId = setTimeout(function tick() {
 
-            for (var i = 0; i < red.length; i++ ) {
-                go.appendChild(red[i]);
+            function paintel() {
+                circle = document.createElement("DIV");
+                circle.className = "block";
+                circle.style.position = 'fixed';
+                circle.style.top = getRandomInt(0, 100) + "%";
+                circle.style.left = getRandomInt(0, 100) + "%";
             }
-        }
 
-        go.onclick = function (event) {
-            console.log('dddd');
-            if(event.target != this) {
-                this.removeChild(event.target);
+            var score = document.querySelector('.score');
+
+            /*
+            * удаляем и добавляем круг каждые 2 секунды
+             */
+            if(flag == 0){
+                paintel();
+
+                setTimeout(function pew() {
+                    circle.className = "none";
+                }, 2000);
+
+                flag = 1;
             }
-        }
 
+            if(flag == 1){
+                paintel();
+                document.body.appendChild(circle);
+                timerId = setTimeout(tick, 2000);
+                flag = 0;
+            }
+
+            circle.onclick = function (event) {
+                paintel();
+
+                event.currentTarget.className = "none";
+
+                t++;
+                score.innerHTML = t;
+
+                clearTimeout(timerId);
+                timerId = setTimeout(tick, 10);
+            }
+
+        }, 2000);
     </script>
 
 </body>

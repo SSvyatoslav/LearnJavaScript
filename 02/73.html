@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS - Сделать кнопки для одновременного изменения цвета, поворота, скругления, восстановления обратно  - call & map</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            display: inline-block;
+            transition-duration: 1.2s;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+
+    <br>
+
+    <button class="changeBackground" onclick="changeFon()">change Background</button>
+    <button class="changeBackground" onclick="changeRadius()">change Radius</button>
+    <button class="changeBackground" onclick="changePovorot()">change Povorot</button>
+    <button class="changeBackground" onclick="changeReset()">Reset</button>
+
+    <script>
+        var blocks = document.querySelectorAll('div'),
+            arr = [].slice.call(blocks);
+
+        function changeFon() {
+            arr = arr.map(function (elem) {
+                elem.style.background = 'blue';
+                return elem;
+            })
+        }
+
+        function changeRadius() {
+            arr = arr.map(function (elem) {
+                elem.style.borderRadius = "50%";
+                return elem;
+            })
+        }
+
+        function changePovorot() {
+            console.log('changePovorot')
+            arr = arr.map(function (elem) {
+                elem.style.transform = 'rotate(15deg)';
+                return elem;
+            })
+        }
+
+        function changeReset() {
+            arr =  arr.map(function (elem) {
+                elem.style.background = "";
+                elem.style.transform = "";
+                elem.style.borderRadius = "";
+                return elem;
+            })
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS - Отрисовать методом Квадраты</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1"></div>
+
+    <script>
+        let go = {
+            width: '10px',
+            height: '10px',
+            background: "red",
+            Draw : function () {
+                var para = document.createElement('div'),
+                    element = document.getElementById('div1');
+                para.style.width= this.width;
+                para.style.height = this.height;
+                para.style.background = this.background;
+                element.appendChild(para);
+            }
+        }
+
+        let result = go.Draw();
+
+        let newDraw = go.Draw;
+
+        insideDraw = Function.prototype.call.bind(newDraw);
+
+        let go2 = {
+            width: '25px',
+            height: '25px',
+            background: 'blue'
+        }
+
+            insideDraw(go2);
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
