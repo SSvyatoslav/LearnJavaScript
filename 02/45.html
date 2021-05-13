@@ -2,19 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AJAX Json - поле для ввода, вводим число и суммируем его с преведущим и отобажает сразу на экран</title>
+    <title>AJAX Json - форма с разными селектами при выборе селектов и нажатиее на кнопку добавляются ниже сообщения с ними и вывести сумму в поле</title>
     <style>
     </style>
 </head>
 <body>
-    <input type="text" id="ty">
-    <input type="submit" onclick="alerttt()">
-    <div id="tr">0</div>
+
+    <select name="" id="tako">
+        <option value="tako">tako</option>
+    </select>
+    <select name="" id="faso">
+        <option value="faso">faso</option>
+        <option value="roso">roso</option>
+    </select>
+    <select  id="e1">
+        <option >35</option>
+        <option >30</option>
+        <option >25</option>
+    </select>
+    <input type="submit" id="send" onclick="alertNum()">
+    <div id="myDiv"></div>
+    <input type="text" id="price" value="0">
 
     <script>
-        function alerttt() {
-            let trrr = parseInt(document.getElementById('tr').innerHTML) + parseInt(document.getElementById('ty').value);
-            document.getElementById('tr').innerHTML = trrr;
+        function alertNum() {
+            let num = document.getElementById('tako').value + document.getElementById('faso').value+document.getElementById('e1').value;
+            document.getElementById('myDiv').innerHTML += (num + '<br>');
+
+            let num1 = parseInt(document.getElementById('price').value)+ parseInt(document.getElementById('e1').value);
+            console.log(num1);
+            document.getElementById('price').value = num1;
         }
     </script>
 
